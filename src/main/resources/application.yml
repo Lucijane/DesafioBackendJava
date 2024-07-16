@@ -9,7 +9,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: 
     show-sql: true
   mail:
     host: smtp.gmail.com
