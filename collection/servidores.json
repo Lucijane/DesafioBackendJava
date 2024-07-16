@@ -1,0 +1,147 @@
+[
+  {
+    "endpoint": "Create Server",
+    "method": "POST",
+    "path": "/servidor",
+    "request_body": {
+      "cpf": "12345678901",
+      "email": "example@example.com",
+      "matricula": "12345",
+      "nome": "João da Silva",
+      "dataNascimento": "1980-05-15",
+      "sexo": "M",
+      "tipo": "PROFESSOR"
+    },
+    "response_example": {
+      "id": 1,
+      "cpf": "12345678901",
+      "email": "example@example.com",
+      "matricula": "12345",
+      "nome": "João da Silva",
+      "dataNascimento": "1980-05-15",
+      "sexo": "M",
+      "tipo": "PROFESSOR"
+    }
+  },
+  {
+    "endpoint": "List Servers",
+    "method": "GET",
+    "path": "/servidor",
+    "request_body": {},
+    "response_example": []
+  },
+  {
+    "endpoint": "Create Specialization Request",
+    "method": "POST",
+    "path": "/pedido-especializacao",
+    "request_body": {
+      "area": "Ciência da Computação",
+      "tipo": "MESTRADO",
+      "cargaHoraria": 400,
+      "valorTotal": 500.00,
+      "status": "PENDENTE",
+      "servidor": {
+        "id": 1,
+        "cpf": "12345678901",
+        "email": "example@example.com",
+        "matricula": "12345",
+        "nome": "João da Silva",
+        "dataNascimento": "1980-05-15",
+        "sexo": "M",
+        "tipo": "PROFESSOR"
+      }
+    },
+    "response_example": {
+      "id": 1,
+      "servidor": {
+        "id": 1,
+        "cpf": "12345678901",
+        "email": "example@example.com",
+        "matricula": "12345",
+        "nome": "João da Silva",
+        "dataNascimento": "1980-05-15",
+        "sexo": "M",
+        "tipo": "PROFESSOR"
+      },
+      "area": "Ciência da Computação",
+      "tipo": "MESTRADO",
+      "cargaHoraria": 400,
+      "valorTotal": 500.00,
+      "status": "PENDENTE"
+    }
+  },
+  {
+    "endpoint": "List Specialization Requests",
+    "method": "GET",
+    "path": "/pedido-especializacao",
+    "request_body": {},
+    "response_example": []
+  },
+  {
+    "endpoint": "Approve Specialization Request",
+    "method": "POST",
+    "path": "/pedido-especializacao/{id}/deferir",
+    "request_body": {
+      "motivo": "DEFERIDO"
+    },
+    "response_example": {
+      "id": 1,
+      "servidor": {
+        "id": 1,
+        "cpf": "12345678901",
+        "email": "example@example.com",
+        "matricula": "12345",
+        "nome": "João da Silva",
+        "dataNascimento": "1980-05-15",
+        "sexo": "M",
+        "tipo": "PROFESSOR"
+      },
+      "area": "Ciência da Computação",
+      "tipo": "MESTRADO",
+      "cargaHoraria": 400,
+      "valorTotal": 500.00,
+      "status": "DEFERIDO"
+    }
+  },
+  {
+    "endpoint": "List Approved Specialization Requests",
+    "method": "GET",
+    "path": "/api/pedido-especializacao/deferidos",
+    "request_body": {},
+    "response_example": []
+  },
+  {
+    "endpoint": "Reject Specialization Request",
+    "method": "POST",
+    "path": "/pedido-especializacao/{id}/indeferir",
+    "request_body": {
+      "motivo": "Falta de documentação necessária"
+    },
+    "response_example": {
+      "id": 1,
+      "servidor": {
+        "id": 1,
+        "cpf": "12345678901",
+        "email": "example@example.com",
+        "matricula": "12345",
+        "nome": "João da Silva",
+        "dataNascimento": "1980-05-15",
+        "sexo": "M",
+        "tipo": "PROFESSOR"
+      },
+      "area": "Ciência da Computação",
+      "tipo": "MESTRADO",
+      "cargaHoraria": 400,
+      "valorTotal": 500.00,
+      "status": "INDEFERIDO",
+      "motivoIndeferimento": "Falta de documentação necessária"
+    }
+  },
+  {
+    "endpoint": "List Rejected Specialization Requests",
+    "method": "GET",
+    "path": "/pedido-especializacao/indeferidos",
+    "request_body": {},
+    "response_example": []
+  }
+]

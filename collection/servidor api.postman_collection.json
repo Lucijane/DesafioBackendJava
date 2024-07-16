@@ -1,0 +1,135 @@
+{
+	"info": {
+		"name": "ServidorEspecializacaoAPI",
+		"_postman_id": "abc123",
+		"description": "Cole\u00e7\u00e3o para testar a API de Servidores e Pedidos de Especializa\u00e7\u00e3o",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Servidor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"12345678901\",\n    \"email\": \"example@example.com\",\n    \"matricula\": \"12345\",\n    \"nome\": \"Jo\u00e3o da Silva\",\n    \"dataNascimento\": \"1980-05-15\",\n    \"sexo\": \"M\",\n    \"tipo\": \"PROFESSOR\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/servidores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servidores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Pedido de Especializacao",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"area\": \"Ci\u00eancia da Computa\u00e7\u00e3o\",\n    \"tipo\": \"MESTRADO\",\n    \"cargaHoraria\": 400,\n    \"valorTotal\": 500.00,\n    \"status\": \"PENDENTE\",\n    \"servidor\": {\n        \"id\": 1,\n        \"cpf\": \"12345678901\",\n        \"email\": \"example@example.com\",\n        \"matricula\": \"12345\",\n        \"nome\": \"Jo\u00e3o da Silva\",\n        \"dataNascimento\": \"1980-05-15\",\n        \"sexo\": \"M\",\n        \"tipo\": \"PROFESSOR\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedido-especializacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedido-especializacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Pedidos de Especializacao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pedido-especializacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedido-especializacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deferir Pedido de Especializacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pedido-especializacao/:id/deferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedido-especializacao",
+						":id",
+						"deferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Indeferir Pedido de Especializacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pedido-especializacao/:id/indeferir?razao=Faltam%20documentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedido-especializacao",
+						":id",
+						"indeferir"
+					],
+					"query": [
+						{
+							"key": "razao",
+							"value": "Faltam documentos"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
